@@ -9,8 +9,9 @@
 				<div v-show="!note.content" class="placeholder">
 					{{ preview ? t('notes', 'Empty note') : t('notes', 'Write …') }}
 				</div>
-				<ThePreview v-if="preview" :value="note.content" />
-				<TheEditor v-else :value="note.content" @input="onEdit" />
+				<Vditor :value="note.content" class="vditor" @input="onEdit" />
+				<!-- <ThePreview v-if="preview" :value="note.content" />
+				<TheEditor v-else :value="note.content" @input="onEdit" /> -->
 			</div>
 			<span class="action-buttons">
 				<Actions :open.sync="actionsOpen" menu-align="right">
@@ -19,13 +20,6 @@
 						@click="onToggleSidebar"
 					>
 						{{ t('notes', 'Details') }}
-					</ActionButton>
-					<ActionButton
-						v-tooltip.left="t('notes', 'CTRL + /')"
-						:icon="preview ? 'icon-rename' : 'icon-toggle'"
-						@click="onTogglePreview"
-					>
-						{{ preview ? t('notes', 'Edit') : t('notes', 'Preview') }}
 					</ActionButton>
 					<ActionButton
 						icon="icon-fullscreen"
@@ -58,8 +52,9 @@ import { emit } from '@nextcloud/event-bus'
 
 import { config } from '../config'
 import { fetchNote, refreshNote, saveNote, saveNoteManually, autotitleNote, routeIsNewNote } from '../NotesService'
-import TheEditor from './EditorEasyMDE'
-import ThePreview from './EditorMarkdownIt'
+import Vditor from './Vditor'
+// import TheEditor from './EditorEasyMDE'
+// import ThePreview from './EditorMarkdownIt'
 import store from '../store'
 
 export default {
@@ -69,8 +64,9 @@ export default {
 		Actions,
 		ActionButton,
 		AppContent,
-		TheEditor,
-		ThePreview,
+		// TheEditor,
+		// ThePreview,
+		Vditor,
 	},
 
 	directives: {
@@ -366,6 +362,11 @@ export default {
 	position: absolute;
 	padding: 1em;
 	opacity: 0.5;
+}
+
+.vditor {
+	position: absolute;
+	margin-top: 50px;
 }
 
 /* main editor button */

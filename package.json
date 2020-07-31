@@ -23,6 +23,7 @@
 		"easymde": "^2.10.1",
 		"markdown-it": "^11.0.0",
 		"stylelint-webpack-plugin": "^2.1.0",
+		"vditor": "^3.4.0",
 		"vue": "^2.6.11",
 		"vue-fragment": "^1.5.1",
 		"vue-observe-visibility": "^0.4.6",

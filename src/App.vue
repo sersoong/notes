@@ -130,6 +130,8 @@ export default {
 		this.search = new OCA.Search(this.onSearch, this.onResetSearch)
 		window.addEventListener('beforeunload', this.onClose)
 		this.loadNotes()
+		// eslint-disable-next-line no-console
+		// console.log(window)
 	},
 
 	methods: {
